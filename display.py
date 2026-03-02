@@ -227,13 +227,13 @@ def _read_battery() -> tuple[int | None, str | None]:
 
 _SPX = 8  # each "pixel" is an 8×8 block → 30×30 logical grid on 240×240
 
-_C_BODY = (255, 146, 171)
-_C_HIGHLIGHT = (255, 190, 205)
-_C_OUTLINE = (140, 55, 80)
-_C_FOOT = (178, 42, 65)
+_C_BODY = (255, 165, 0)
+_C_HIGHLIGHT = (255, 200, 80)
+_C_OUTLINE = (140, 80, 0)
+_C_FOOT = (200, 100, 0)
 _C_EYE = (20, 20, 80)
 _C_SPARKLE = (255, 255, 255)
-_C_CHEEK = (255, 95, 130)
+_C_CHEEK = (255, 120, 0)
 _C_MOUTH_INT = (20, 20, 30)
 _C_MOUTH_EDGE = (180, 50, 80)
 
@@ -718,7 +718,7 @@ class Display:
         now = datetime.now()
 
         # Large clock
-        time_str = now.strftime("%H:%M")
+        time_str = now.strftime("%I:%M %p").lstrip("0")
         tw = self._clock_font.getlength(time_str)
         tx = int((self._width - tw) / 2)
         ty = int(self._height * 0.22)
