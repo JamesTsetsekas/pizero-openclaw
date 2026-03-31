@@ -40,6 +40,7 @@ def stream_response(
         "Authorization": f"Bearer {config.OPENCLAW_TOKEN}",
         "Content-Type": "application/json",
         "Accept": "text/event-stream",
+        "x-openclaw-scopes": "operator.read,operator.write",
     }
 
     if history:
